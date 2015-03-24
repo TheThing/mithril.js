@@ -523,7 +523,7 @@ var m = (function app(window, undefined) {
 			var controller = new (module.controller || function() {});
 			//controllers may call m.module recursively (via m.route redirects, for example)
 			//this conditional ensures only the last recursive m.module call is applied
-			if (currentModule === topModule) {
+			if (currentModule === topModule || index !== modules.indexOf(topModule)) {
 				controllers[index] = controller;
 				modules[index] = module
 			}
